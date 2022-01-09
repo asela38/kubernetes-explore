@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: no-adapter
+  name: no-adapter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: no-adapter
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: no-adapter
+    spec:
+      volumes:
+      - name: metric
+        emptyDir: {}
+      containers:
+      - image: alpine:latest
+        name: alpine
+        volumeMounts:
+        - name: metric
+          mountPath : /metrics
+        command: ["/bin/sh", "-c"]
+        args:
+        - mkdir /metrics;
+          while true; do
+            date > /metrics/raw.txt;
+            top -n 1 -b >> /metrics/raw.txt;
+            sleep 5;
+          done
+
+status: {}
