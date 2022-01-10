@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fibonacci
+  name: fibonacci
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fibonacci
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fibonacci
+    spec:
+      containers:
+      - image: asela38/fibonacci-service
+        name: fibonacci-service
+        ports:
+        - containerPort: 11235
+        resources: {}
+status: {}

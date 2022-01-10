@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2022-01-10T13:04:05Z"
+  labels:
+    kubernetes.io/metadata.name: explore-service-type
+  name: explore-service-type
+  resourceVersion: "314096"
+  uid: 7e68a582-a18b-492c-ab30-809bb7f5b909
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

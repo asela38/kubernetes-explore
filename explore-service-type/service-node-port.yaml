@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fibonacci
+  name: fibb-node-port
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 11235
+  selector:
+    app: fibonacci
+  type: NodePort
+status:
+  loadBalancer: {}
